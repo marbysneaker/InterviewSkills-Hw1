@@ -76,6 +76,52 @@ vector<int> twoSum(vector<int> nums, int target) {
         return(nums3[mid]);
     }
 
+// 4)  Remove Nth Node From End of List Given the head of a linked list, remove the nth node from the end of the list and return its head. 
+ 
+// Example 1: 
+// Input: head = [1], n = 1 
+// Output: [] 
+// Example 2: 
+// Input: head = [1,2], n = 1 
+// Output: [1]
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* curr = head;
+        ListNode* curr1 = head;
+        int count = 0;
+        if(curr->next ==nullptr){
+            return nullptr;
+        }
+        while(curr){
+            count++;
+            curr = curr->next;
+        }
+        count = count - n;
+        if(count ==0){
+            return head->next;
+        }
+        for(int i = 1; i<count;i++)
+            curr1 = curr1->next;
+        curr1->next = curr1->next->next;
+        return head;
+            
+    }
+// 5)  Merge k Sorted Lists 
+// You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. 
+// Merge all the linked-lists into one sorted linked-list and return it. 
+// Example 1: 
+// Input: lists = [[1,4,5],[1,3,4],[2,6]] 
+// Output: [1,1,2,3,4,4,5,6] 
+// Explanation: The linked-lists are: 
+// [ 
+//   1->4->5, 
+//   1->3->4, 
+//   2->6 
+// ] 
+// merging them into one sorted list: 
+// 1->1->2->3->4->4->5->6 
+// Example 2: 
+// Input: lists = [] 
+// Output: [] 
 
 int main(){
   
